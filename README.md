@@ -72,3 +72,4 @@ $ node create-env-string.js <hostname> <token-path> <settings-path>
 * Review best approach for multi branch deployment.
 	* http://stackoverflow.com/a/10810859
 	* https://github.com/shippableSamples?utf8=%E2%9C%93&query=branch
+* Check if there is a shippable API to get the encrypted string as part of the string creation script.
