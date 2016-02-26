@@ -65,3 +65,10 @@ $ node create-env-string.js <hostname> <token-path> <settings-path>
 
 3. Copy the output to the `env` section in the `shippable.yml`.
 4. Copy the updated `shippable.yml` to your project and enjoy automated Meteor Galaxy deployments. :-)
+
+
+## TODO
+
+* Review best approach for multi branch deployment.
+	* http://stackoverflow.com/a/10810859
+	* https://github.com/shippableSamples?utf8=%E2%9C%93&query=branch
