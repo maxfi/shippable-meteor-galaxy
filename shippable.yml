@@ -1,0 +1,24 @@
+build_image: shippableimages/ubuntu1404_nodejs
+language: node_js
+node_js:
+  - 0.10.25
+install:
+  - curl https://install.meteor.com/ | sh
+before_script:
+  - echo "{\"commit\":\"$COMMIT\", \"buildNumber\":\"$BUILD_NUMBER\"}" > public/build
+  - echo $METEOR_TOKEN | sed 's/\\"/"/g' | python -m json.tool > deployment_token.json
+  - echo $METEOR_SETTINGS | sed 's/\\"/"/g' | python -m json.tool > deployment_settings.json
+script:
+  - true # You can run your tests here.
+after_success:
+  - >
+    DEPLOY_HOSTNAME=galaxy.meteor.com
+    METEOR_SESSION_FILE=deployment_token.json
+    meteor deploy $METEOR_TARGET
+    --settings deployment_settings.json
+branches:
+  only:
+    - develop
+env:
+  global:
+    - secure: <secure-output-here>
