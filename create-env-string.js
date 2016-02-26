@@ -12,7 +12,6 @@ function escapeQuote(str) {
 }
 
 function getJSON(filePath) {
-    console.log(filePath);
     try {
         var json = JSON.stringify(JSON.parse(fs.readFileSync(filePath)));
     }
